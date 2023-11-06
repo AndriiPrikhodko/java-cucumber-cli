@@ -22,5 +22,5 @@ I want to see the number of vowels in each of the strings that I have entered.
     - Assumption: ```Latin```
 - Q: How output should be formatted?
     - Assumption: ```[CountResult{word=<input string>, vowelCount=<number of vowels in the input>}]```
-- Q: Should input be only lowercase?
+- Q: Should input be only in lowercase?
     - Assumption: ```Input is case insensitive```
