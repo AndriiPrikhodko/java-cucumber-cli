@@ -1,36 +1,10 @@
-"/opt/apache-maven-3.9
-.5/bin/mvn" test -f "/Users/andriiprykhodko/Documents/work/agile_qa_interview_exercise/pom.xml"
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] ------< agile.qa.interview.exercise:agile_qa_interview_exercise >-------
-[INFO] Building agile_qa_interview_exercise 1.0-SNAPSHOT
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- resources:3.3.1:resources (default-resources) @ agile_qa_interview_exercise ---
-[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
-[INFO] Copying 0 resource from src/main/resources to target/classes
-[INFO] 
-[INFO] --- compiler:3.11.0:compile (default-compile) @ agile_qa_interview_exercise ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] 
-[INFO] --- resources:3.3.1:testResources (default-testResources) @ agile_qa_interview_exercise ---
-[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
-[INFO] skip non existing resourceDirectory /Users/andriiprykhodko/Documents/work/agile_qa_interview_exercise/src/test/resources
-[INFO] 
-[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ agile_qa_interview_exercise ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] 
-[INFO] --- surefire:3.1.2:test (default-test) @ agile_qa_interview_exercise ---
-[INFO] Using auto detected provider org.apache.maven.surefire.junit4.JUnit4Provider
-[INFO] 
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running cucumber.RunCucumberTest
 
-Scenario: Successful program can be launched # cucumber/features/vowels.feature:5
-  Given I have a compiled Jar program        # cucumber.stepdefinitions.VowelsStepDefs.i_have_a_compiled_Jar_program()
+Scenario: Successful program can be found # cucumber/features/vowels.feature:5
+  Given I have a compiled Jar program     # cucumber.stepdefinitions.VowelsStepDefs.i_have_a_compiled_Jar_program()
 
 Scenario: Successful program execution lowercase arguments                                                                                                            # cucumber/features/vowels.feature:8
   Given I have a compiled Jar program                                                                                                                                 # cucumber.stepdefinitions.VowelsStepDefs.i_have_a_compiled_Jar_program()
@@ -68,20 +42,26 @@ Scenario: Successful program execution for maximum of 4 arguments               
         at ✽.the program output should contain "[CountResult{word='one', vowelCount=2, consonantsCount=1}, CountResult{word='two', vowelCount=1, consonantsCount=2}, CountResult{word='three', vowelCount=2, consonantsCount=3}, CountResult{word='four', vowelCount=2, consonantsCount=2}]"(classpath:cucumber/features/vowels.feature:30)
 
 
-Scenario: Successful program execution empty string                                               # cucumber/features/vowels.feature:32
+Scenario: Successful program execution for 1 argument                                                # cucumber/features/vowels.feature:32
+  Given I have a compiled Jar program                                                                # cucumber.stepdefinitions.VowelsStepDefs.i_have_a_compiled_Jar_program()
+  When I run the program with arguments "one"                                                        # cucumber.stepdefinitions.VowelsStepDefs.i_run_the_program_with_arguments(java.lang.String)
+  Then the program should exit with code 0                                                           # cucumber.stepdefinitions.VowelsStepDefs.the_program_should_exit_with_code(int)
+  And the program output should contain "[CountResult{word='one', vowelCount=2, consonantsCount=1}]" # cucumber.stepdefinitions.VowelsStepDefs.the_program_output_should_contain(java.lang.String)
+
+Scenario: Successful program execution empty string                                               # cucumber/features/vowels.feature:38
   Given I have a compiled Jar program                                                             # cucumber.stepdefinitions.VowelsStepDefs.i_have_a_compiled_Jar_program()
   When I run the program with arguments ""                                                        # cucumber.stepdefinitions.VowelsStepDefs.i_run_the_program_with_arguments(java.lang.String)
   Then the program should exit with code 0                                                        # cucumber.stepdefinitions.VowelsStepDefs.the_program_should_exit_with_code(int)
   And the program output should contain "[CountResult{word='', vowelCount=0, consonantsCount=0}]" # cucumber.stepdefinitions.VowelsStepDefs.the_program_output_should_contain(java.lang.String)
-[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.479 s <<< FAILURE! -- in cucumber.RunCucumberTest
-[ERROR] Vowels count program.Successful program execution uppercase arguments -- Time elapsed: 0.068 s <<< FAILURE!
+[ERROR] Tests run: 7, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.590 s <<< FAILURE! -- in cucumber.RunCucumberTest
+[ERROR] Vowels count program.Successful program execution uppercase arguments -- Time elapsed: 0.071 s <<< FAILURE!
 org.junit.ComparisonFailure: expected:<...='TEST', vowelCount=[1, consonantsCount=3}, CountResult{word='UPPERCASE', vowelCount=4], consonantsCount=5}...> but was:<...='TEST', vowelCount=[0, consonantsCount=3}, CountResult{word='UPPERCASE', vowelCount=0], consonantsCount=5}...>
         at org.junit.Assert.assertEquals(Assert.java:117)
         at org.junit.Assert.assertEquals(Assert.java:146)
         at cucumber.stepdefinitions.VowelsStepDefs.the_program_output_should_contain(VowelsStepDefs.java:74)
         at ✽.the program output should contain "[CountResult{word='TEST', vowelCount=1, consonantsCount=3}, CountResult{word='UPPERCASE', vowelCount=4, consonantsCount=5}]"(classpath:cucumber/features/vowels.feature:18)
 
-[ERROR] Vowels count program.Successful program execution for maximum of 4 arguments -- Time elapsed: 0.056 s <<< FAILURE!
+[ERROR] Vowels count program.Successful program execution for maximum of 4 arguments -- Time elapsed: 0.055 s <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[[CountResult{word='one', vowelCount=2, consonantsCount=1}, CountResult{word='two', vowelCount=1, consonantsCount=2}, CountResult{word='three', vowelCount=2, consonantsCount=3}, CountResult{word='four', vowelCount=2, consonantsCount=2}]]> but was:<[Extra arguments passed.]>
         at org.junit.Assert.assertEquals(Assert.java:117)
         at org.junit.Assert.assertEquals(Assert.java:146)
@@ -95,13 +75,13 @@ org.junit.ComparisonFailure: expected:<[[CountResult{word='one', vowelCount=2, c
 [ERROR]   expected:<[[CountResult{word='one', vowelCount=2, consonantsCount=1}, CountResult{word='two', vowelCount=1, consonantsCount=2}, CountResult{word='three', vowelCount=2, consonantsCount=3}, CountResult{word='four', vowelCount=2, consonantsCount=2}]]> but was:<[Extra arguments passed.]>
 [ERROR]   expected:<...='TEST', vowelCount=[1, consonantsCount=3}, CountResult{word='UPPERCASE', vowelCount=4], consonantsCount=5}...> but was:<...='TEST', vowelCount=[0, consonantsCount=3}, CountResult{word='UPPERCASE', vowelCount=0], consonantsCount=5}...>
 [INFO] 
-[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0
+[ERROR] Tests run: 7, Failures: 2, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  1.089 s
-[INFO] Finished at: 2023-11-06T12:07:26Z
+[INFO] Total time:  1.226 s
+[INFO] Finished at: 2023-11-06T12:34:57Z
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (default-test) on project agile_qa_interview_exercise: There are test failures.
 [ERROR] 
