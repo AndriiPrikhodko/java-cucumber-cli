@@ -1,3 +1,4 @@
+[INFO] 
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
@@ -42,26 +43,26 @@ Scenario: Successful program execution for maximum of 4 arguments               
         at ✽.the program output should contain "[CountResult{word='one', vowelCount=2, consonantsCount=1}, CountResult{word='two', vowelCount=1, consonantsCount=2}, CountResult{word='three', vowelCount=2, consonantsCount=3}, CountResult{word='four', vowelCount=2, consonantsCount=2}]"(classpath:cucumber/features/vowels.feature:30)
 
 
-Scenario: Successful program execution for 1 argument                                                # cucumber/features/vowels.feature:32
-  Given I have a compiled Jar program                                                                # cucumber.stepdefinitions.VowelsStepDefs.i_have_a_compiled_Jar_program()
-  When I run the program with arguments "one"                                                        # cucumber.stepdefinitions.VowelsStepDefs.i_run_the_program_with_arguments(java.lang.String)
-  Then the program should exit with code 0                                                           # cucumber.stepdefinitions.VowelsStepDefs.the_program_should_exit_with_code(int)
-  And the program output should contain "[CountResult{word='one', vowelCount=2, consonantsCount=1}]" # cucumber.stepdefinitions.VowelsStepDefs.the_program_output_should_contain(java.lang.String)
+Scenario: Successful program execution for 1 argument                                                             # cucumber/features/vowels.feature:32
+  Given I have a compiled Jar program                                                                             # cucumber.stepdefinitions.VowelsStepDefs.i_have_a_compiled_Jar_program()
+  When I run the program with arguments "o!@#$&(_+^%$!)ne"                                                        # cucumber.stepdefinitions.VowelsStepDefs.i_run_the_program_with_arguments(java.lang.String)
+  Then the program should exit with code 0                                                                        # cucumber.stepdefinitions.VowelsStepDefs.the_program_should_exit_with_code(int)
+  And the program output should contain "[CountResult{word='o!@#$&(_+^%$!)ne', vowelCount=2, consonantsCount=1}]" # cucumber.stepdefinitions.VowelsStepDefs.the_program_output_should_contain(java.lang.String)
 
 Scenario: Successful program execution empty string                                               # cucumber/features/vowels.feature:38
   Given I have a compiled Jar program                                                             # cucumber.stepdefinitions.VowelsStepDefs.i_have_a_compiled_Jar_program()
   When I run the program with arguments ""                                                        # cucumber.stepdefinitions.VowelsStepDefs.i_run_the_program_with_arguments(java.lang.String)
   Then the program should exit with code 0                                                        # cucumber.stepdefinitions.VowelsStepDefs.the_program_should_exit_with_code(int)
   And the program output should contain "[CountResult{word='', vowelCount=0, consonantsCount=0}]" # cucumber.stepdefinitions.VowelsStepDefs.the_program_output_should_contain(java.lang.String)
-[ERROR] Tests run: 7, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.590 s <<< FAILURE! -- in cucumber.RunCucumberTest
-[ERROR] Vowels count program.Successful program execution uppercase arguments -- Time elapsed: 0.071 s <<< FAILURE!
+[ERROR] Tests run: 7, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.566 s <<< FAILURE! -- in cucumber.RunCucumberTest
+[ERROR] Vowels count program.Successful program execution uppercase arguments -- Time elapsed: 0.094 s <<< FAILURE!
 org.junit.ComparisonFailure: expected:<...='TEST', vowelCount=[1, consonantsCount=3}, CountResult{word='UPPERCASE', vowelCount=4], consonantsCount=5}...> but was:<...='TEST', vowelCount=[0, consonantsCount=3}, CountResult{word='UPPERCASE', vowelCount=0], consonantsCount=5}...>
         at org.junit.Assert.assertEquals(Assert.java:117)
         at org.junit.Assert.assertEquals(Assert.java:146)
         at cucumber.stepdefinitions.VowelsStepDefs.the_program_output_should_contain(VowelsStepDefs.java:74)
         at ✽.the program output should contain "[CountResult{word='TEST', vowelCount=1, consonantsCount=3}, CountResult{word='UPPERCASE', vowelCount=4, consonantsCount=5}]"(classpath:cucumber/features/vowels.feature:18)
 
-[ERROR] Vowels count program.Successful program execution for maximum of 4 arguments -- Time elapsed: 0.055 s <<< FAILURE!
+[ERROR] Vowels count program.Successful program execution for maximum of 4 arguments -- Time elapsed: 0.044 s <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[[CountResult{word='one', vowelCount=2, consonantsCount=1}, CountResult{word='two', vowelCount=1, consonantsCount=2}, CountResult{word='three', vowelCount=2, consonantsCount=3}, CountResult{word='four', vowelCount=2, consonantsCount=2}]]> but was:<[Extra arguments passed.]>
         at org.junit.Assert.assertEquals(Assert.java:117)
         at org.junit.Assert.assertEquals(Assert.java:146)
@@ -80,8 +81,8 @@ org.junit.ComparisonFailure: expected:<[[CountResult{word='one', vowelCount=2, c
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  1.226 s
-[INFO] Finished at: 2023-11-06T12:34:57Z
+[INFO] Total time:  1.179 s
+[INFO] Finished at: 2023-11-06T12:58:57Z
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.1.2:test (default-test) on project agile_qa_interview_exercise: There are test failures.
 [ERROR] 

@@ -31,9 +31,9 @@ Feature: Vowels count program
     
      Scenario: Successful program execution for 1 argument
         Given I have a compiled Jar program
-        When I run the program with arguments "one"
+        When I run the program with arguments "o!@#$&(_+^%$!)ne"
         Then the program should exit with code 0
-        And the program output should contain "[CountResult{word='one', vowelCount=2, consonantsCount=1}]"
+        And the program output should contain "[CountResult{word='o!@#$&(_+^%$!)ne', vowelCount=2, consonantsCount=1}]"
 
     Scenario: Successful program execution empty string
         Given I have a compiled Jar program
