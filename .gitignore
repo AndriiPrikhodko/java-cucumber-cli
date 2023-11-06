@@ -1,3 +1,4 @@
 target/
 **/*.DS_Store
 .vscode
+agile_qa_interview_exercise.jar

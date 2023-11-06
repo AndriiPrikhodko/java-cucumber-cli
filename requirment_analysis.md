@@ -17,7 +17,7 @@ I want to see the number of vowels in each of the strings that I have entered.
 - Q: Is there any limitations on string content, special characters, numbers etc.?
     - Assumption: ```No```
 - Q: What is the expected result if more than 4 strings are passed as input?
-    - Assumption: ```Exit code 1```
+    - Assumption: Exit code ```1``` and message ```Extra arguments passed.```
 - Q: Is there any language requirements( latin, cyrillic, arabic, mandarin)?
     - Assumption: ```Latin```
 - Q: How output should be formatted?
