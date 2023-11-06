@@ -5,14 +5,7 @@ import io.cucumber.java.en.When;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
 import java.util.List;
-
-import org.junit.Assert;
 
 import com.exercise.VowelCounter;
 import com.exercise.CountResult;
